@@ -24,6 +24,9 @@
 //this.click = function() {
   //console.log('now click');
   //if ( flag ) {
+
+
+
     flag = false;
     //$( 'button#get_datas' ).prop( 'disabled', true ).text( 'Now get datas…' );
     jQuery.ajax({

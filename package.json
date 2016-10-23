@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "start": "browser-sync start --server --files='./*.html'"
+    "start": "browser-sync start --server --files='./**/*'"
   },
   "author": "",
   "license": "ISC",
