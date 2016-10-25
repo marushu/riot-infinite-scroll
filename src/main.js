@@ -1,20 +1,51 @@
+<app>
+	<main-header></main-header>
+
+	<div class="contents">
+		<post each={ opts.posts } title={ title } content={ content }>
+	</div>
+
+	<style>
+		.contents {
+			border-bottom: 10px solid red;
+		}
+	</style>
+
+</app>
+
+<nextload>
+
+	<div class="contents">
+		<post each={ opts.posts } title={ title } content={ content }>
+	</div>
+
+	<script>
+	  this.on('mount', function(){
+			console.log( 'mounted' )
+	  })
+		//this.update()
+	  </script>
+
+</nextload>
+
+
 flag = false;
 var per_page = 5
 var paged = 1
+var items = []
 get_remote_datas( 'app', false, per_page, paged );
 
 var nextArray = this.items = []
 this.click = function( e ) {
 
   paged++
-  console.log( paged )
-  var test = get_remote_datas( 'nextload', true, per_page, paged )
+  get_remote_datas( 'nextload', true, per_page, paged )
 
 }
 
-function get_remote_datas( target, check, per_page, paged ) {
+var testarr = []
 
-  console.log( per_page )
+function get_remote_datas( target, check, per_page, paged ) {
 
   var baseUrl = 'https://private.hibou-web.com/wp-json/wp/v2/posts'
   var param = '?per_page='
@@ -22,20 +53,38 @@ function get_remote_datas( target, check, per_page, paged ) {
   var paged_str = '&page='
   var paged = paged
   var requestUrl = baseUrl + param + per_page + paged_str + paged
-  console.log( requestUrl )
+
+  var self = this
 
   $.ajax({
+
     url      : requestUrl,
     type     : 'GET',
-    data     : {
-    },
+    dataType : 'json',
+
   }).done( function( response ) {
 
-    var tags = riot.mount(target, {
-      posts: response
-    });
+    if ( target === 'app' ) {
 
-    //console.log( this.items )
+      riot.mount(target, {
+        posts: response
+      });
+
+    } else {
+
+      //console.log( target )
+      for ( i = 0; i < response.length; i++ ) {
+
+        testarr.push( response[ i ] )
+
+      }
+      //console.log( testarr )
+
+      riot.mount(target, {
+        posts: testarr
+      });
+
+    }
 
   }).fail(function( response ) {
 
