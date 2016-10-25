@@ -1,5 +1,5 @@
 <post>
-	<h1>{ opts.title.rendered }</h1>
+	<h1 class=" item wow fadeInUp">{ opts.title.rendered }</h1>
 
 	<!--<raw class="contents" content= { opts.content.rendered } />-->
 
