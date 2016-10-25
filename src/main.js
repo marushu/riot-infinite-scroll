@@ -24,6 +24,7 @@ function get_remote_datas( target, check, per_page, paged ) {
   var self = this
 
   $.ajax({
+
     url      : requestUrl,
     type     : 'GET',
     dataType : 'json',
