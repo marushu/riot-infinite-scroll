@@ -9,6 +9,7 @@ this.click = function( e ) {
 
   paged++
   get_remote_datas( 'nextload', true, per_page, paged )
+  riot.mount( 'loading' )
 
 }
 
@@ -48,6 +49,11 @@ function get_remote_datas( target, check, per_page, paged ) {
       riot.mount(target, {
         posts: nextarr
       });
+
+      //$( '.spinner' ).remove()
+      element = document.querySelector( '.spinner' );
+      console.log( element )
+      element.remove()
 
     }
 
