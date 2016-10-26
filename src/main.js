@@ -50,10 +50,8 @@ function get_remote_datas( target, check, per_page, paged ) {
         posts: nextarr
       });
 
-      //$( '.spinner' ).remove()
       element = document.querySelector( '.spinner' );
-      console.log( element )
-      element.remove()
+      element.parentNode.removeChild( element );
 
     }
 
