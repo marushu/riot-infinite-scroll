@@ -16,19 +16,23 @@ this.click = function( e ) {
 function get_remote_datas( target, check, per_page, paged ) {
 
   var baseUrl = 'https://private.hibou-web.com/wp-json/wp/v2/posts'
-  var param = '?per_page='
+  //var param = '?per_page='
   var per_page = per_page
-  var paged_str = '&page='
+  //var paged_str = '&page='
   var paged = paged
-  var requestUrl = baseUrl + param + per_page + paged_str + paged
+  //var requestUrl = baseUrl + param + per_page + paged_str + paged
 
   var self = this
 
   $.ajax({
 
-    url      : requestUrl,
-    type     : 'GET',
-    dataType : 'json',
+    url           : baseUrl,
+    type          : 'GET',
+    dataType      : 'json',
+    data          : {
+      'per_page'  : per_page,
+      'paged'     : paged,
+    },
 
   }).done( function( response ) {
 

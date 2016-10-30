@@ -19,7 +19,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #333;
+  background-color: red;
   opacity: 0.6;
   position: absolute;
   top: 0;
