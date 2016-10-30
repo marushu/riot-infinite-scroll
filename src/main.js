@@ -32,10 +32,12 @@ function get_remote_datas( target, check, per_page, paged ) {
 
   }).done( function( response ) {
 
+    console.log( response )
+
     if ( target === 'app' ) {
 
       riot.mount(target, {
-        posts: response
+        datas: response
       });
 
     } else {
