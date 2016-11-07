@@ -4,6 +4,9 @@ var paged = 1
 var items = []
 var nextarr = []
 get_remote_datas( 'app', false, per_page, paged );
+window.onload = function() {
+  riot.mount( 'loading' )
+};
 
 this.click = function( e ) {
 
@@ -16,13 +19,7 @@ this.click = function( e ) {
 function get_remote_datas( target, check, per_page, paged ) {
 
   var baseUrl = 'https://private.hibou-web.com/wp-json/wp/v2/posts'
-  //var param = '?per_page='
-  var per_page = per_page
-  //var paged_str = '&page='
   var paged = paged
-  //var requestUrl = baseUrl + param + per_page + paged_str + paged
-
-  var self = this
 
   $.ajax({
 
@@ -31,7 +28,7 @@ function get_remote_datas( target, check, per_page, paged ) {
     dataType      : 'json',
     data          : {
       'per_page'  : per_page,
-      'paged'     : paged,
+      'page'     : paged,
     },
 
   }).done( function( response ) {
@@ -43,6 +40,7 @@ function get_remote_datas( target, check, per_page, paged ) {
       riot.mount(target, {
         datas: response
       });
+      riot.mount( 'putbutton' )
 
     } else {
 
@@ -51,15 +49,24 @@ function get_remote_datas( target, check, per_page, paged ) {
         nextarr.push( response[ i ] )
 
       }
+      console.log( nextarr );
 
       riot.mount(target, {
-        posts: nextarr
+        datas: nextarr
       });
 
-      element = document.querySelector( '.spinner' );
-      element.parentNode.removeChild( element );
-
     }
+    element = document.querySelector( '.spinner' );
+    if ( element ) {
+      element.parentNode.removeChild( element );
+    }
+
+    //console.log( response.length )
+    //console.log( per_page )
+    riot.mount( 'lastdatas', {
+      counts: nextarr.length + per_page
+    });
+
 
   }).fail(function( response ) {
 

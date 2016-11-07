@@ -3,16 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-
-	<div class="mount-test" riot-tag="app"></div>
-
-	<nextload></nextload>
-	<div id="loading" riot-tag="loading"></div>
-
-	<div id="button" riot-tag="putbutton"></div>
+	<div class="wrap">
+		<div class="mount-test" riot-tag="app"></div>
+		<div class="mount-test" riot-tag="nextload"></div>
+		<div id="loading" riot-tag="loading"></div>
+		<div id="button" riot-tag="putbutton"></div>
+	</div>
 
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.css">
@@ -21,15 +21,14 @@
 	<script src='./src/main.js'></script>
 	<script src='./src/components/app.tag' type="riot/tag"></script>
 	<script src='./src/components/nextload.tag' type="riot/tag"></script>
-	<script src='./src/components/post.tag' type="riot/tag"></script>
-	<script src='./src/components/raw.tag' type="riot/tag"></script>
+	<!-- <script src='./src/components/post.tag' type="riot/tag"></script> -->
+	<!-- <script src='./src/components/raw.tag' type="riot/tag"></script> -->
 	<script src='./src/components/putbutton.tag' type="riot/tag"></script>
-	<script src='./src/components/my-tag.tag' type="riot/tag"></script>
 	<script src='./src/components/loading.tag' type="riot/tag"></script>
 	<script type="text/javascript">
-		riot.mount('putbutton')
-		riot.mount( 'loading' )
+		riot.mount( 'putbutton' )
 		riot.mount( 'app' )
+		riot.mount( 'nextload' )
 		//new WOW().init();
 	</script>
 

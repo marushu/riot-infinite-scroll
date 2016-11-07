@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+.wrap {
+  margin-bottom: 200px;
+}
+
+.item {
+  text-indent: -1.6em;
+  padding-left: 2.3em;
+  color: #666;
+  transition: all 1s ease;
+}
+
+.item:hover {
+  color: #000;
+}
+
+.item a {
+  text-decoration: none;
+  border-bottom: 3px dotted #ccc;
+  color: #666;
+}
+
+.item a:hover {
+  color: #000;
+  transition: all 1s ease;
+}
+
+#get_datas {
+  font-size: 2.5em;
+  text-align: center;
+  padding: 1em 0;
+  width: 100%;
+  margin-top: 1em;
+  background: none;
+  background-color: #fbf2f2;
+  border: 1px dotted red;
+  cursor: pointer;
+  color: red;
+  text-transform: uppercase;
+  transition: all .5s ease;
+}
+
+#get_datas:hover {
+  color: #fff;
+  background-color: red;
+}
+
+#get_datas:focus {
+  outline: 0;
+}
